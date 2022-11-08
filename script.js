@@ -1,43 +1,30 @@
-const mainInputElemntDisplay = document.querySelector('.input-display');
-const mainInputElemntAddNumber = document.querySelector('.input-new-number');
+const mainInputElementDisplay = document.querySelector('.input-display');
+const mainInputElementAddNumber = document.querySelector('.input-new-number');
 const btnEnter = document.querySelector('.button-add-number');
 
-let numVersion = 0;
-  
-const displayVision = (text) => {
-    mainInputElemntDisplay.value = text;
-}
+let numStop = 0;
 
 const functionSumm = (num) => {
-  let arr = [];
-
+  let c = 0;
   for (let i = 0; i < num; ++i) {
     let a = i / 3;
-    if (a === Math.ceil(a) && a !== 0) {
-      arr.push(3*a);  
-    }
-
     let b = i / 5;
-    if (b === Math.ceil(b) && b !== 0) {
-      arr.push(5*b);
+    if (a === Math.ceil(a)) {
+      c += i;
+    }
+    if (b === Math.ceil(b)) {
+      c += i;
     }
   }
-  
-  const summ = (arr) => {
-    return arr.reduce((a, x) => a + x)
-  }
-
-  const abc = summ(arr);
-  displayVision(abc);
+  mainInputElementDisplay.value = c;
 }
 
 const clickFunction = () => {
-    const num = Number(mainInputElemntAddNumber.value.trim());
-    if (num !== numVersion) {
-    displayVision(num);
+  const num = Number(mainInputElementAddNumber.value.trim());
+  if (num !== numStop && num !== 0) {
     functionSumm(num);
-    numVersion = num;
-  }
+    numStop = num;
+  };
 }
     
 btnEnter.addEventListener('click', clickFunction);
