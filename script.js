@@ -9,10 +9,7 @@ const functionSumm = (num) => {
   for (let i = 0; i < num; ++i) {
     let a = i / 3;
     let b = i / 5;
-    if (a === Math.ceil(a)) {
-      c += i;
-    }
-    if (b === Math.ceil(b)) {
+    if (a === Math.ceil(a) || b === Math.ceil(b)) {
       c += i;
     }
   }
